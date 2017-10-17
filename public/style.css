@@ -1,0 +1,99 @@
+body {
+    font-family: 'Cinzel', serif;
+    background-color: #ffe4e1;
+}
+
+.parallax { 
+    background-image: url("images/background.jpg");
+    height: 500px; 
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.home_buttons{
+    position: fixed;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.homebtn {
+    display: inline-block;
+    padding: 15px;
+    border-style: solid;
+    border-color: white;
+    color: white;
+    font-size: 1.7em;
+    text-decoration: none;
+    margin-right: 50px;
+}
+
+.selectbtn {
+    display: inline-block;
+    padding: 10px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #333;
+    color:#333;
+    font-size: 1.3em;
+    text-decoration: none;
+    margin-right: 2em;
+    margin-top:1em;
+}
+
+h1 {
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3em;
+    color: white;
+}
+
+h2 {
+    margin-top: 1.5em;
+    text-align: center;
+    font-size: 2.5em;
+}
+
+h3 {
+    text-align: center;
+    font-size: 3em;
+    margin-top: -1em;
+}
+
+
+.collection-content {
+    margin-left: 5em;
+    margin-top: 4em;
+    margin-right: 5em;
+}
+
+
+.collection-grid {
+    display: inline-block;
+    width: 33%;
+}
+
+.collection-image {
+    width: 70%;
+    margin: auto;
+}
+
+.cocktail-content {
+    text-align: center;
+    margin-left: -2em;
+}
+
+.cocktail-ul {
+    list-style: none;
+}
+
+.cocktail-link {
+    text-decoration: underline;
+    color: #333;
+    font-size: 1.8em;
+}
