@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { Collection, Cocktails } = require('../db/models');
 
 router.get('/', (req, res, next) => {
-    Cocktails.findAll()
+    Cocktails.findAll({include: {model: Collection}})
     .then(cocktails => res.json(cocktails))
     .catch(next);
 })

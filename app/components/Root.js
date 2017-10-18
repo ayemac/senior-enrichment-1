@@ -4,6 +4,9 @@ import { Route, Switch, HashRouter } from 'react-router-dom';
 import Home from './Home';
 import Collection from './Collection';
 import Cocktails from './Cocktails';
+import SingleCollection from './SingleCollection';
+import SingleCocktail from './SingleCocktail';
+import AddCollection from './AddCollection';
 import { fetchCollection, fetchCocktails } from '../reducers';
 
 class Root extends Component {
@@ -14,8 +17,10 @@ class Root extends Component {
           <Route exact path="/" component={Home} />
           <Route exact path="/collection" component={Collection} />
           <Route exact path="/cocktails" component={Cocktails} />
-          {/* <Route exact path="/new-collection" component={Students} />
-          <Route exact path="/new-cocktail" component={Students} /> */}
+          <Route exact path="/collection/:collectionId" component={SingleCollection} />
+          <Route exact path="/cocktails/:cocktailId" component={SingleCocktail} />
+          <Route exact path="/add-collection" component={AddCollection} />
+          {/* <Route exact path="/add-cocktail" component={Students} /> */}
         </Switch>
       </HashRouter>
     );
