@@ -22,13 +22,13 @@ router.delete('/:id', (req, res, next) => {
 	.catch(next);
 })
 
-router.post('/:id', (req, res, next) => {
-    Cocktails.findById(req.body.cocktailid)
-	.then(foundCocktail => foundCocktail.setCollection(req.params.id))
-	.then(() => Cocktails.findAll({include: {model: Collection}}))
-	.then(cocktails => res.json(cocktails))
-	.catch(next);
-})
+// router.post('/:id', (req, res, next) => {
+//     Cocktails.findById(req.body.cocktailid)
+// 	.then(foundCocktail => foundCocktail.setCollection(req.params.id))
+// 	.then(() => Cocktails.findAll({include: {model: Collection}}))
+// 	.then(cocktails => res.json(cocktails))
+// 	.catch(next);
+// })
 
 
 module.exports = router;

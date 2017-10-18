@@ -7,15 +7,15 @@ router.get('/', (req, res, next) => {
     .catch(next);
 })
 
-// router.get('/:cocktailId', (req, res, next) => {
-//     Cocktails.findById(req.params.cocktailId)
-//     .then(cocktail => res.json(cocktail))
-//     .catch(next);
-// })
+router.get('/:cocktailId', (req, res, next) => {
+    Cocktails.findById(req.params.cocktailId)
+    .then(cocktail => res.json(cocktail))
+    .catch(next);
+})
 
 router.post('/', (req, res, next) => {
     Cocktails.create(req.body)
-    .then(() => Cocktails.findAll())
+    .then(() => Cocktails.findAll({include: {model: Collection}}))
     .then(cocktails => res.json(cocktails) )
     .catch(next);
 })

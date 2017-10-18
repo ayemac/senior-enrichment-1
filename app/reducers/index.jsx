@@ -3,14 +3,10 @@ import axios from 'axios';
 //action type
 const GET_COLLECTION = 'GET_COLLECTION';
 const GET_COCKTAILS = 'GET_COCKTAILS';
-// const CREATE_COLLECTION = 'CREATE_COLLECTION';
-// const GET_COCKTAIL = 'GET_COCKTAIL';
 
 //action creator
 export const getCollection = (collection) => ({type: GET_COLLECTION, collection})
 export const getCocktails = (cocktails) => ({type: GET_COCKTAILS, cocktails})
-// export const createCollection = (collection) => ({type: CREATE_COLLECTION, collection})
-// export const getCocktail = (cocktail) => ({type: GET_COCKTAIL, cocktail})
 
 //thunk creator
 export const fetchCollection = () => dispatch =>
@@ -58,13 +54,13 @@ export const addCocktail = (cocktail, history) => dispatch =>
     })
     .catch(console.error)
 
-export const reassignCocktail = (reqbody, collectionId) => dispatch =>
-    axios.post(`api/collection/${collectionId}`, reqbody)
-    .then(res => res.data)
-    .then(cocktails => {
-      dispatch(getCocktails(cocktails));
-    })
-    .catch(console.error)
+// export const reassignCocktail = (reqbody, collectionId) => dispatch =>
+//     axios.post(`api/collection/${collectionId}`, reqbody)
+//     .then(res => res.data)
+//     .then(cocktails => {
+//       dispatch(getCocktails(cocktails));
+//     })
+//     .catch(console.error)
 
 //state
 const initialState = {
