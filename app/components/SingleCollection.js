@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 // import { fetchCollection, fetchCocktails } from '../reducers';
-import { deleteCocktail } from '../reducers';
+import { deleteCocktail, reassignCocktail } from '../reducers';
 
 class SingleCollection extends Component {
     constructor() {
         super();
         this.handleClick = this.handleClick.bind(this);
-        // this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     render() {
@@ -31,7 +31,7 @@ class SingleCollection extends Component {
                         ))}
                     </ul>
                     <p>Add More Cocktails to This Collection:</p>
-                    <form>
+                    <form onSubmit={(event) => this.handleSubmit(event)}>
                         <select name="selectedCocktail" className="select-window">
                             {allCocktails && allCocktails.map(eachCocktail => (
                                 <option value={eachCocktail.id} key={eachCocktail.id}>{eachCocktail.name}</option>
@@ -46,17 +46,13 @@ class SingleCollection extends Component {
         )
     }
 
-    // componentDidMount() {
-    //     this.props.fetchInitialData();
-    //   }
-
     handleClick(id) {
         this.props.delete(id);
     }
 
-    // handleSubmit(event) {
-    //     this.props.submit(event);
-    // }
+    handleSubmit(event) {
+        this.props.submit(event);
+    }
 
 
 }
@@ -70,24 +66,20 @@ const mapStateToProps = (state, ownProps) => {
     }
 }
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch, ownProps) => {
     return {
-        // fetchInitialData: function () {
-        //     dispatch(fetchCocktails());
-        //     dispatch(fetchCollection());
-        //   }
         delete: (id) => {
             //this should be update cocktail
             dispatch(deleteCocktail(id));
-        }
+        },
 
-        // submit: (event) => {
-        //     event.preventDefault();
-        //     const collectionId = Number(ownProps.match.params.collectionId);
-        //     dispatch(reassignCocktail({
-        //         cocktailid: event.target.selectedCocktail.value
-        //     }, collectionId));
-        // }
+        submit: (event) => {
+            event.preventDefault();
+            const collectionId = Number(ownProps.match.params.collectionId);
+            dispatch(reassignCocktail({
+                cocktailId: Number(event.target.selectedCocktail.value)
+            }, collectionId));
+        }
     }
 }
 

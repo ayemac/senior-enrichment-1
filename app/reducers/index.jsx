@@ -54,13 +54,13 @@ export const addCocktail = (cocktail, history) => dispatch =>
     })
     .catch(console.error)
 
-// export const reassignCocktail = (reqbody, collectionId) => dispatch =>
-//     axios.post(`api/collection/${collectionId}`, reqbody)
-//     .then(res => res.data)
-//     .then(cocktails => {
-//       dispatch(getCocktails(cocktails));
-//     })
-//     .catch(console.error)
+export const reassignCocktail = (reqbody, collectionId) => dispatch =>
+    axios.put(`api/collection/${collectionId}`, reqbody)
+    .then(res => res.data)
+    .then(cocktails => {
+      dispatch(getCocktails(cocktails));
+    })
+    .catch(console.error)
 
 //state
 const initialState = {
