@@ -24,6 +24,7 @@ class SingleCocktail extends Component {
 
 const mapStateToProps = (state, ownProps) => {
     const cocktailId = Number(ownProps.match.params.cocktailId);
+    if (!state.cocktails) { return undefined }
     return {
         cocktail: state.cocktails.find(cocktail => cocktail.id === cocktailId)
     }

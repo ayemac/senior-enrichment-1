@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 import { addCollection } from '../reducers';
 
 class AddCollection extends Component {
@@ -10,7 +9,6 @@ class AddCollection extends Component {
     }
 
     render() {
-        const collections = this.props.collection;
         return (
             <div>
                 <h2>New Collection</h2>
@@ -61,6 +59,3 @@ const mapDispatchtoProps = (dispatch, ownProps) => {
 }
 
 export default connect(null, mapDispatchtoProps)(AddCollection);
-
-
-

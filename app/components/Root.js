@@ -7,6 +7,7 @@ import Cocktails from './Cocktails';
 import SingleCollection from './SingleCollection';
 import SingleCocktail from './SingleCocktail';
 import AddCollection from './AddCollection';
+import AddCocktail from './AddCocktail';
 import { fetchCollection, fetchCocktails } from '../reducers';
 
 class Root extends Component {
@@ -20,7 +21,7 @@ class Root extends Component {
           <Route exact path="/collection/:collectionId" component={SingleCollection} />
           <Route exact path="/cocktails/:cocktailId" component={SingleCocktail} />
           <Route exact path="/add-collection" component={AddCollection} />
-          {/* <Route exact path="/add-cocktail" component={Students} /> */}
+          <Route exact path="/add-cocktail" component={AddCocktail} />
         </Switch>
       </HashRouter>
     );

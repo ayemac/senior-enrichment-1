@@ -25,39 +25,48 @@ const collectionData = [
 const cocktailsData = [
   {
     name: "Whiskey Sour",
-    url: "http://www.epicurious.com/recipes/food/views/whiskey-sour-cocktail"
+    url: "http://www.epicurious.com/recipes/food/views/whiskey-sour-cocktail",
+    collectionId: 1
   },
   {
     name: "French 75",
-    url: "http://www.epicurious.com/recipes/food/views/french-75-champagne-cocktail"
+    url: "http://www.epicurious.com/recipes/food/views/french-75-champagne-cocktail",
+    collectionId: 1
   },
   {
     name: "Daiquiri",
-    url: "http://www.epicurious.com/recipes/food/views/rum-daiquiri-cocktail"
+    url: "http://www.epicurious.com/recipes/food/views/rum-daiquiri-cocktail",
+    collectionId: 1
   },
   {
     name: "Tarocco Spritz",
-    url: "http://www.epicurious.com/recipes/food/views/tarocco-spritz"
+    url: "http://www.epicurious.com/recipes/food/views/tarocco-spritz",
+    collectionId: 2
   },
   {
     name: "Cucumber Gin",
-    url: "http://www.epicurious.com/recipes/food/views/cucumber-gin-cocktail"
+    url: "http://www.epicurious.com/recipes/food/views/cucumber-gin-cocktail",
+    collectionId: 2
   },
   {
     name: "Sicilian Slush",
-    url: "http://www.epicurious.com/recipes/food/views/the-sicilian-slush"
+    url: "http://www.epicurious.com/recipes/food/views/the-sicilian-slush",
+    collectionId: 2
   },
   {
     name: "Hot Toddy",
-    url: "http://www.epicurious.com/recipes/food/views/hot-toddy-51213610"
+    url: "http://www.epicurious.com/recipes/food/views/hot-toddy-51213610",
+    collectionId: 3
   },
   {
     name: "Maple Old Fashioned",
-    url: "http://www.epicurious.com/recipes/food/views/maple-old-fashioned"
+    url: "http://www.epicurious.com/recipes/food/views/maple-old-fashioned",
+    collectionId: 3
   },
   {
     name: "Boulevardier",
-    url: "http://www.bonappetit.com/recipe/boulevardier"
+    url: "http://www.bonappetit.com/recipe/boulevardier",
+    collectionId: 3
   }
 ]
 

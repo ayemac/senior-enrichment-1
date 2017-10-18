@@ -3,16 +3,6 @@ body {
     background-color: #ffe4e1;
 }
 
-.parallax { 
-    background-image: url("images/background.jpg");
-    height: 500px; 
-    /* Create the parallax scrolling effect */
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
 .home_buttons{
     position: fixed;
     top: 60%;
@@ -84,6 +74,7 @@ h3 {
 
 .collection-add {
     text-align: center;
+    margin-bottom: 3em;
 }
 
 .collection-content {
@@ -125,6 +116,10 @@ h3 {
     margin-top: 2em;
 }
 
+.fa-times {
+    margin-left: 1em;
+}
+
 .single-cocktail {
     text-align: center;
 }
@@ -163,3 +158,9 @@ h3 {
     margin: 2em auto;
     font-size: 1.5em;
 }
+
+.select-window {
+    width: 200px;
+    height: 20px;
+}
+

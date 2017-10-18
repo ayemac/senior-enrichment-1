@@ -3,12 +3,14 @@ import axios from 'axios';
 //action type
 const GET_COLLECTION = 'GET_COLLECTION';
 const GET_COCKTAILS = 'GET_COCKTAILS';
-const CREATE_COLLECTION = 'CREATE_COLLECTION'
+// const CREATE_COLLECTION = 'CREATE_COLLECTION';
+// const GET_COCKTAIL = 'GET_COCKTAIL';
 
 //action creator
 export const getCollection = (collection) => ({type: GET_COLLECTION, collection})
 export const getCocktails = (cocktails) => ({type: GET_COCKTAILS, cocktails})
-export const createCollection = (collection) => ({type: CREATE_COLLECTION, collection})
+// export const createCollection = (collection) => ({type: CREATE_COLLECTION, collection})
+// export const getCocktail = (cocktail) => ({type: GET_COCKTAIL, cocktail})
 
 //thunk creator
 export const fetchCollection = () => dispatch =>
@@ -31,6 +33,12 @@ export const deleteCollection = (id) => dispatch =>
     .then(collection => dispatch(getCollection(collection)))
     .catch(console.error)
 
+export const deleteCocktail = (id) => dispatch => {
+    axios.delete(`api/cocktails/${id}`)
+    .then(res => res.data)
+    .then(cocktails => dispatch(getCocktails(cocktails)))
+    .catch(console.error)
+}
 
 export const addCollection = (collection, history) => dispatch =>
     axios.post('api/collection', collection)
@@ -38,6 +46,23 @@ export const addCollection = (collection, history) => dispatch =>
     .then(collections => {
       dispatch(getCollection(collections));
       history.push('/collection')
+    })
+    .catch(console.error)
+
+export const addCocktail = (cocktail, history) => dispatch =>
+    axios.post('api/cocktails', cocktail)
+    .then(res => res.data)
+    .then(cocktails => {
+      dispatch(getCocktails(cocktails));
+      history.push('/cocktails')
+    })
+    .catch(console.error)
+
+export const reassignCocktail = (reqbody, collectionId) => dispatch =>
+    axios.post(`api/collection/${collectionId}`, reqbody)
+    .then(res => res.data)
+    .then(cocktails => {
+      dispatch(getCocktails(cocktails));
     })
     .catch(console.error)
 
@@ -54,6 +79,9 @@ const rootReducer = function(state = initialState, action) {
 
     case GET_COCKTAILS:
       return Object.assign({}, state, {cocktails: action.cocktails})
+
+    // case GET_COCKTAIL:
+    //   return Object.assign({}, state, {cocktails: [...state.cocktails, action.cocktail]})
 
     default: return state
   }
