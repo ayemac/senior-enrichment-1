@@ -1,19 +1,18 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addCocktail } from '../reducers';
+import { editCocktail } from '../reducers';
 
-class AddCocktail extends Component {
+class EditCocktail extends Component {
     constructor() {
         super();
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     render() {
-        const collection = this.props.collection;
-        if (!collection) { return null }
         return (
+       
             <div>
-                <h2>New Cocktail</h2>
+                <h2>Edit Cocktail</h2>
                 <h3>_______</h3>
                 <div className="collection-add">
                     <form onSubmit={this.handleSubmit}>
@@ -22,20 +21,14 @@ class AddCocktail extends Component {
                                 className="form-control"
                                 type="text"
                                 name="cocktailName"
-                                placeholder="Enter cocktail name"
+                                placeholder="New Name For Cocktail"
                             />
                             <input
                                 className="form-control"
                                 type="text"
                                 name="cocktailRecipe"
-                                placeholder="Enter cocktail recipe URL"
+                                placeholder="New Recipe URL For Cocktail"
                             />
-                            <p>Assign to Collection:</p>
-                            <select name="selectedValue" className="select-window">
-                                {collection && collection.map(curCollection => (
-                                    <option value={curCollection.id} key={curCollection.id}>{curCollection.name}</option>
-                                ))}
-                            </select>
                         </div>
                         <div className="form-group">
                             <button type="submit" className="deletebtn">Save</button>
@@ -50,28 +43,22 @@ class AddCocktail extends Component {
         this.props.submit(event);
     }
 
+
 }
 
-
-const mapStateToProps = (state) => {
-    if (!state.collection) { return undefined }
-    return {
-        collection: state.collection
-    }
-}
+//container
 
 const mapDispatchtoProps = (dispatch, ownProps) => {
     return {
         submit: (event) => {
             event.preventDefault();
-            dispatch(addCocktail({
+            dispatch(editCocktail({
+                id: Number(ownProps.match.params.cocktailId),
                 name: event.target.cocktailName.value,
-                url: event.target.cocktailRecipe.value,
-                collectionId: event.target.selectedValue.value,
+                url: event.target.cocktailRecipe.value
             }, ownProps.history))
         }
     }
 }
 
-export default connect(mapStateToProps, mapDispatchtoProps)(AddCocktail);
-
+export default connect(null, mapDispatchtoProps)(EditCocktail);

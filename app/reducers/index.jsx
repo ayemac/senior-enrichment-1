@@ -17,6 +17,7 @@ export const fetchCollection = () => dispatch =>
     .then(collection => {
       dispatch(getCollection(collection))
     })
+    .catch(console.error)
 
 export const fetchCocktails = () => dispatch =>
   axios.get('api/cocktails')
@@ -24,6 +25,7 @@ export const fetchCocktails = () => dispatch =>
     .then(cocktails => {
       dispatch(getCocktails(cocktails))
     })
+    .catch(console.error)
 
 //delete
 export const deleteCollection = (id) => dispatch =>
@@ -45,7 +47,7 @@ export const addCollection = (collection, history) => dispatch =>
     .then(res => res.data)
     .then(collections => {
       dispatch(getCollection(collections));
-      history.push('/collection')
+      history.push('/collection');
     })
     .catch(console.error)
 
@@ -54,12 +56,11 @@ export const addCocktail = (cocktail, history) => dispatch =>
     .then(res => res.data)
     .then(cocktails => {
       dispatch(getCocktails(cocktails));
-      history.push('/cocktails')
+      history.push('/cocktails');
     })
     .catch(console.error)
 
-
-//update
+//reassign
 export const assignCocktailToCollection = (cocktailId, collectionId) => dispatch =>
   axios.put(`api/cocktails/${cocktailId}`, collectionId)
     .then(res => res.data)
@@ -68,7 +69,29 @@ export const assignCocktailToCollection = (cocktailId, collectionId) => dispatch
     })
     .catch(console.error)
 
-export const removeCocktailFromCollection = (cocktailId) => assignCocktailToCollection(cocktailId, {collectionId: null});
+export const removeCocktailFromCollection = (cocktailId) => assignCocktailToCollection(cocktailId, { collectionId: null });
+
+
+//edit
+export const editCollection = (reqbody, history) => dispatch => {
+  axios.put(`api/collection/edit/${reqbody.id}`, reqbody)
+    .then(res => res.data)
+    .then(collections => {
+      dispatch(getCollection(collections));
+      history.push('/collection');
+    })
+    .catch(console.error)
+}
+
+export const editCocktail = (reqbody, history) => dispatch => {
+  axios.put(`api/cocktails/edit/${reqbody.id}`, reqbody)
+    .then(res => res.data)
+    .then(cocktails => {
+      dispatch(getCocktails(cocktails));
+      history.push('/cocktails');
+    })
+    .catch(console.error)
+}
 
 
 //state

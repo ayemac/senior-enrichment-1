@@ -22,5 +22,13 @@ router.delete('/:id', (req, res, next) => {
 	.catch(next);
 })
 
+router.put('/edit/:collectionId', (req, res, next) => {
+    Collection.findById(req.params.collectionId)
+    .then(foundCollection => foundCollection.update(req.body))
+    .then(() => Collection.findAll())
+	.then(collection => res.json(collection))
+	.catch(next);
+})
+
 
 module.exports = router;

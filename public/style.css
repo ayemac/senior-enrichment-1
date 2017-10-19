@@ -72,6 +72,13 @@ h3 {
     font-size: .8em;
 }
 
+.unstylebtn {
+    text-decoration: none;
+    /* margin-left: 45%;
+    margin-top: 1.5em; */
+    font-size: 1em;
+}
+
 .collection-add {
     text-align: center;
     margin-bottom: 3em;
@@ -142,7 +149,7 @@ h3 {
 }
 
 .cocktail-name {
-    font-size: 5em;
+    font-size: 3.5em;
 }
 
 .form-group {
@@ -163,4 +170,6 @@ h3 {
     width: 200px;
     height: 20px;
 }
+
+
 

@@ -30,4 +30,12 @@ router.put('/:id', (req, res, next) => {
 	.catch(next);
 })
 
+router.put('/edit/:cocktailId', (req, res, next) => {
+    Cocktails.findById(req.params.cocktailId)
+    .then(foundCocktail => foundCocktail.update(req.body))
+    .then(() => Cocktails.findAll())
+	.then(cocktails => res.json(cocktails))
+	.catch(next);
+})
+
 module.exports = router;

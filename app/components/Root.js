@@ -8,6 +8,8 @@ import SingleCollection from './SingleCollection';
 import SingleCocktail from './SingleCocktail';
 import AddCollection from './AddCollection';
 import AddCocktail from './AddCocktail';
+import EditCollection from './EditCollection';
+import EditCocktail from './EditCocktail';
 import { fetchCollection, fetchCocktails } from '../reducers';
 
 class Root extends Component {
@@ -22,6 +24,8 @@ class Root extends Component {
           <Route exact path="/cocktails/:cocktailId" component={SingleCocktail} />
           <Route exact path="/add-collection" component={AddCollection} />
           <Route exact path="/add-cocktail" component={AddCocktail} />
+          <Route exact path="/collection/edit/:collectionId" component={EditCollection} />
+          <Route exact path="/cocktails/edit/:cocktailId" component={EditCocktail} />
         </Switch>
       </HashRouter>
     );
