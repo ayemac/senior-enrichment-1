@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { addCollection } from '../reducers';
 
@@ -30,7 +31,7 @@ class AddCollection extends Component {
                             />
                         </div>
                         <div className="form-group">
-                            <button type="submit" className="deletebtn">Save</button>
+                            <button type="submit" className="smallbtn">Save</button>
                         </div>
                     </form>
                 </div>

@@ -31,7 +31,7 @@ class EditCollection extends Component {
                             />
                         </div>
                         <div className="form-group">
-                            <button type="submit" className="deletebtn">Save</button>
+                            <button type="submit" className="smallbtn">Save</button>
                         </div>
                     </form>
                 </div>

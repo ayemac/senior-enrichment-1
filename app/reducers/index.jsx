@@ -10,6 +10,7 @@ export const getCocktails = (cocktails) => ({ type: GET_COCKTAILS, cocktails })
 
 
 //thunk creators
+
 //fetch 
 export const fetchCollection = () => dispatch =>
   axios.get('api/collection')

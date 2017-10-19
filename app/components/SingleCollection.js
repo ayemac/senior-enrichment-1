@@ -37,7 +37,7 @@ class SingleCollection extends Component {
                             ))}
                         </select>
                         <div className="form-group">
-                            <button type="submit" className="deletebtn">Add</button>
+                            <button type="submit" className="smallbtn">Add</button>
                         </div>
                     </form>
                 </div>

@@ -23,9 +23,11 @@ class Collection extends Component {
                         <div className="collection-grid" key={collection.id}>
                             <img src={collection.image} className="collection-image" />
                             <Link to={`/collection/${collection.id}`} className="selectbtn">{collection.name}</Link>
-                            <Link to={`/collection/edit/${collection.id}`} className="unstylebtn"><button className="deletebtn">~Edit~</button></Link>
-                            <button className="deletebtn" onClick={() => this.handleClick(collection.id)}>Delete</button>
+                            <Link to={`/collection/edit/${collection.id}`} className="smallbtn">~Edit~</Link>
+                            <Link to="/collection" className="smallbtn" onClick={() => this.handleClick(collection.id)}>Delete</Link>
                         </div>
+
+
                     ))}
                 </div>
             </div>
