@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Route, Switch, HashRouter } from 'react-router-dom';
 import Home from './Home';
+import Navbar from './Navbar';
 import Collection from './Collection';
 import Cocktails from './Cocktails';
 import SingleCollection from './SingleCollection';
@@ -16,17 +17,23 @@ class Root extends Component {
   render() {
     return (
       <HashRouter>
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/collection" component={Collection} />
-          <Route exact path="/cocktails" component={Cocktails} />
-          <Route exact path="/collection/:collectionId" component={SingleCollection} />
-          <Route exact path="/cocktails/:cocktailId" component={SingleCocktail} />
-          <Route exact path="/add-collection" component={AddCollection} />
-          <Route exact path="/add-cocktail" component={AddCocktail} />
-          <Route exact path="/collection/edit/:collectionId" component={EditCollection} />
-          <Route exact path="/cocktails/edit/:cocktailId" component={EditCocktail} />
-        </Switch>
+        <div>
+          <Navbar />
+          <div>
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route exact path="/collection" component={Collection} />
+              <Route exact path="/cocktails" component={Cocktails} />
+              <Route exact path="/collection/:collectionId" component={SingleCollection} />
+              <Route exact path="/cocktails/:cocktailId" component={SingleCocktail} />
+              <Route exact path="/add-collection" component={AddCollection} />
+              <Route exact path="/add-cocktail" component={AddCocktail} />
+              <Route exact path="/collection/edit/:collectionId" component={EditCollection} />
+              <Route exact path="/cocktails/edit/:cocktailId" component={EditCocktail} />
+              <Route component={Home} />
+            </Switch>
+          </div>
+        </div>
       </HashRouter>
     );
   }
