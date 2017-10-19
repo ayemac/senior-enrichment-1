@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-// import { fetchCollection, fetchCocktails } from '../reducers';
-import { deleteCocktail, reassignCocktail } from '../reducers';
+import { removeCocktailFromCollection, assignCocktailToCollection } from '../reducers';
 
 class SingleCollection extends Component {
     constructor() {
@@ -38,7 +37,7 @@ class SingleCollection extends Component {
                             ))}
                         </select>
                         <div className="form-group">
-                            <button type="submit" className="deletebtn">Save</button>
+                            <button type="submit" className="deletebtn">Add</button>
                         </div>
                     </form>
                 </div>
@@ -47,7 +46,7 @@ class SingleCollection extends Component {
     }
 
     handleClick(id) {
-        this.props.delete(id);
+        this.props.remove(id);
     }
 
     handleSubmit(event) {
@@ -68,17 +67,15 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
-        delete: (id) => {
-            //this should be update cocktail
-            dispatch(deleteCocktail(id));
+        remove: (id) => {
+            dispatch(removeCocktailFromCollection(id));
         },
 
         submit: (event) => {
             event.preventDefault();
             const collectionId = Number(ownProps.match.params.collectionId);
-            dispatch(reassignCocktail({
-                cocktailId: Number(event.target.selectedCocktail.value)
-            }, collectionId));
+            const cocktailId = Number(event.target.selectedCocktail.value);
+            dispatch(assignCocktailToCollection(cocktailId, {collectionId: collectionId}));
         }
     }
 }
