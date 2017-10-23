@@ -45,10 +45,10 @@ class Root extends Component {
 
 // container
 
-const mapDispatch = (dispatch) => {
+const mapDispatchToProps = (dispatch) => {
 
   return {
-    fetchInitialData: function () {
+    fetchInitialData: () => {
       dispatch(fetchCocktails());
       dispatch(fetchCollection());
     }
@@ -56,4 +56,4 @@ const mapDispatch = (dispatch) => {
 };
 
 //connect and export
-export default connect(null, mapDispatch)(Root);
+export default connect(null, mapDispatchToProps)(Root);
