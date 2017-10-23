@@ -1,6 +1,6 @@
 # Senior Enrichment Project
 
-:cocktail:Allison's Cocktail Mixer:cocktail:
+:tropical_drink::cocktail: Allison's Cocktail Mixer :cocktail::tropical_drink:
 
 ## Frameworks Used
 
