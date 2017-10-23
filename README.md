@@ -1,6 +1,6 @@
 # Senior Enrichment Project
 
-Allison's Cocktail Mixer
+:cocktail:Allison's Cocktail Mixer:cocktail:
 
 ## Frameworks Used
 
