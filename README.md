@@ -2,6 +2,8 @@
 
 :tropical_drink::cocktail: Allison's Cocktail Mixer :cocktail::tropical_drink:
 
+![Walkthrough GIF](https://github.com/leahzxxz/senior-enrichment/blob/master/public/quick%20walkthrough.gif)
+
 ## Frameworks Used
 
 Sequelize, Express, React, Redux, React-Redux
