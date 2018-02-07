@@ -13,7 +13,7 @@ export const getCocktails = (cocktails) => ({ type: GET_COCKTAILS, cocktails })
 
 //fetch 
 export const fetchCollection = () => dispatch =>
-  axios.get('api/collection')
+  axios.get('/api/collection')
     .then(res => res.data)
     .then(collection => {
       dispatch(getCollection(collection))
@@ -21,7 +21,7 @@ export const fetchCollection = () => dispatch =>
     .catch(console.error)
 
 export const fetchCocktails = () => dispatch =>
-  axios.get('api/cocktails')
+  axios.get('/api/cocktails')
     .then(res => res.data)
     .then(cocktails => {
       dispatch(getCocktails(cocktails))
@@ -30,13 +30,13 @@ export const fetchCocktails = () => dispatch =>
 
 //delete
 export const deleteCollection = (id) => dispatch =>
-  axios.delete(`api/collection/${id}`)
+  axios.delete(`/api/collection/${id}`)
     .then(res => res.data)
     .then(collection => dispatch(getCollection(collection)))
     .catch(console.error)
 
 export const deleteCocktail = (id) => dispatch => {
-  axios.delete(`api/cocktails/${id}`)
+  axios.delete(`/api/cocktails/${id}`)
     .then(res => res.data)
     .then(cocktails => dispatch(getCocktails(cocktails)))
     .catch(console.error)
@@ -44,7 +44,7 @@ export const deleteCocktail = (id) => dispatch => {
 
 //add
 export const addCollection = (collection, history) => dispatch =>
-  axios.post('api/collection', collection)
+  axios.post('/api/collection', collection)
     .then(res => res.data)
     .then(collections => {
       dispatch(getCollection(collections));
@@ -53,7 +53,7 @@ export const addCollection = (collection, history) => dispatch =>
     .catch(console.error)
 
 export const addCocktail = (cocktail, history) => dispatch =>
-  axios.post('api/cocktails', cocktail)
+  axios.post('/api/cocktails', cocktail)
     .then(res => res.data)
     .then(cocktails => {
       dispatch(getCocktails(cocktails));
@@ -63,7 +63,7 @@ export const addCocktail = (cocktail, history) => dispatch =>
 
 //reassign
 export const assignCocktailToCollection = (cocktailId, collectionId) => dispatch =>
-  axios.put(`api/cocktails/${cocktailId}`, collectionId)
+  axios.put(`/api/cocktails/${cocktailId}`, collectionId)
     .then(res => res.data)
     .then(cocktails => {
       dispatch(getCocktails(cocktails));
@@ -75,7 +75,7 @@ export const removeCocktailFromCollection = (cocktailId) => assignCocktailToColl
 
 //edit
 export const editCollection = (reqbody, history) => dispatch => {
-  axios.put(`api/collection/edit/${reqbody.id}`, reqbody)
+  axios.put(`/api/collection/edit/${reqbody.id}`, reqbody)
     .then(res => res.data)
     .then(collections => {
       dispatch(getCollection(collections));
@@ -85,7 +85,7 @@ export const editCollection = (reqbody, history) => dispatch => {
 }
 
 export const editCocktail = (reqbody, history) => dispatch => {
-  axios.put(`api/cocktails/edit/${reqbody.id}`, reqbody)
+  axios.put(`/api/cocktails/edit/${reqbody.id}`, reqbody)
     .then(res => res.data)
     .then(cocktails => {
       dispatch(getCocktails(cocktails));
